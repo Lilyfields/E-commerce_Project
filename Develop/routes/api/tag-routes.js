@@ -19,7 +19,9 @@ try{
   // find a single tag by its `id`
   router.get('/:id', async (req, res) => {
   try {
-    const tagData = await User.findByPk(req.params.id);
+    const tagData = await Tag.findByPk(req.params.id,{
+    });
+    
     if (!tagData) {
       res.status(404).json({ message: 'No tag with this id!' });
       return;
